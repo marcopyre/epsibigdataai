@@ -1,7 +1,7 @@
 
 // The simplest possible sbt build file is just one line:
 
-scalaVersion := "2.13.12"
+scalaVersion := "2.12.19"
 // That is, to create a valid sbt build, all you've got to do is define the
 // version of Scala you'd like your project to use.
 
@@ -25,13 +25,20 @@ version := "1.0"
 // Want to use a published library in your project?
 // You can define other libraries as dependencies in your build like this:
 
-libraryDependencies += "org.scala-lang.modules" %% "scala-parser-combinators" % "2.3.0"
+libraryDependencies += "org.scala-lang.modules" %% "scala-parser-combinators" % "1.1.2"
+
+// https://mvnrepository.com/artifact/com.johnsnowlabs.nlp/spark-nlp
+libraryDependencies += "com.johnsnowlabs.nlp" %% "spark-nlp" % "5.3.2"
+
 
 libraryDependencies ++= Seq(
   "org.apache.spark" %% "spark-core" % "3.3.2" % "provided",
   "org.apache.spark" %% "spark-sql" % "3.3.2" % "provided",
   "org.apache.spark" %% "spark-streaming" % "3.3.2",
+  "org.apache.spark" %% "spark-mllib" % "3.3.2",
 )
+
+
 
 // Add JVM options to open the sun.nio.ch package to unnamed modules
 // This is necessary for compatibility with Java 17 module system restrictions
